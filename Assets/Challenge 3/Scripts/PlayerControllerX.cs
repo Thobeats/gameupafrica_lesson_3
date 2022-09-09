@@ -8,7 +8,7 @@ public class PlayerControllerX : MonoBehaviour
 
     private float floatForce = 10.0f;
     private float gravityModifier = 1.5f;
-    private float topBound = 17.0f;
+    private float topBound = 14.0f;
     private Rigidbody playerRb;
 
     public ParticleSystem explosionParticle;
@@ -52,10 +52,11 @@ public class PlayerControllerX : MonoBehaviour
         // if player collides with bomb, explode and set gameOver to true
         if (other.gameObject.CompareTag("Bomb"))
         {
+            Debug.Log("Game Over!");
             explosionParticle.Play();
             playerAudio.PlayOneShot(explodeSound, 1.0f);
             gameOver = true;
-            Debug.Log("Game Over!");
+          
             Destroy(other.gameObject);
           //  Destroy(gameObject);
         } 
